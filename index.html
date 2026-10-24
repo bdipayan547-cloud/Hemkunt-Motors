@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hemkunt Motors — premium pre-owned cars and trusted automotive services in Rohini, New Delhi." />
+  <title>Hemkunt Motors | Premium Cars. Trusted Deals.</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+    :root{
+      --ink:#11110f;
+      --ink-soft:#1b1b18;
+      --cream:#f4f1e9;
+      --paper:#fbfaf6;
+      --muted:#77756d;
+      --line:rgba(17,17,15,.12);
+      --gold:#b38a45;
+      --gold-dark:#8e6b35;
+      --white:#fff;
+      --shadow:0 24px 70px rgba(0,0,0,.12);
+      --radius:24px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"DM Sans",Arial,sans-serif;
+      color:var(--ink);
+      background:var(--paper);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+    img{display:block;width:100%;object-fit:cover}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+
+    .nav-wrap{
+      position:fixed;
+      z-index:50;
+      top:18px;
+      left:50%;
+      transform:translateX(-50%);
+      width:min(1180px,calc(100% - 32px));
+    }
+    nav{
+      height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 22px 0 26px;
+      border:1px solid rgba(255,255,255,.15);
+      background:rgba(16,16,14,.86);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+      border-radius:999px;
+      box-shadow:0 16px 45px rgba(0,0,0,.18);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:#fff;
+      font-family:"Manrope",sans-serif;
+      font-weight:800;
+      letter-spacing:-.03em;
+      font-size:18px;
+    }
+    .brand-mark{
+      width:37px;height:37px;border-radius:50%;
+      display:grid;place-items:center;
+      border:1px solid rgba(255,255,255,.3);
+      color:#e4c98e;
+      font-size:15px;
+    }
+    .nav-links{display:flex;gap:28px;color:#d6d3cb;font-size:13px;font-weight:600}
+    .nav-links a{transition:.25s}
+    .nav-links a:hover{color:#fff}
+    .nav-cta{
+      color:#15140f;
+      background:#eee8da;
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:13px;
+      transition:transform .25s,background .25s;
+    }
+    .nav-cta:hover{transform:translateY(-2px);background:#fff}
+
+    .hero{
+      min-height:100vh;
+      position:relative;
+      background:#0e0e0c;
+      color:#fff;
+      display:flex;
+      align-items:flex-end;
+      overflow:hidden;
+    }
+    .hero-bg{
+      position:absolute;inset:0;
+      background:
+        linear-gradient(90deg,rgba(8,8,7,.86) 0%,rgba(8,8,7,.42) 48%,rgba(8,8,7,.12) 100%),
+        linear-gradient(0deg,rgba(8,8,7,.72) 0%,rgba(8,8,7,.05) 48%,rgba(8,8,7,.2) 100%),
+        url("assets/hero-jeep.png") center 46%/cover no-repeat;
+      transform:scale(1.015);
+    }
+    .hero-content{
+      position:relative;
+      z-index:2;
+      width:min(1180px,calc(100% - 40px));
+      margin:0 auto;
+      padding:150px 0 90px;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color:#e0c58a;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:11px;
+      font-weight:800;
+      margin-bottom:20px;
+    }
+    .eyebrow:before{
+      content:"";
+      width:34px;height:1px;background:#caa866;
+    }
+    h1{
+      max-width:780px;
+      font-family:"Manrope",sans-serif;
+      font-size:clamp(52px,8vw,104px);
+      line-height:.92;
+      letter-spacing:-.065em;
+      font-weight:800;
+    }
+    .hero-copy{
+      max-width:540px;
+      color:#d9d7d0;
+      margin-top:26px;
+      font-size:17px;
+    }
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:50px;padding:0 22px;border-radius:999px;
+      font-size:13px;font-weight:800;
+      transition:.25s ease;
+    }
+    .btn-primary{background:#f0eadf;color:#15140f}
+    .btn-primary:hover{transform:translateY(-3px);background:#fff}
+    .btn-ghost{border:1px solid rgba(255,255,255,.24);color:#fff;background:rgba(255,255,255,.06)}
+    .btn-ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-3px)}
+    .hero-meta{
+      display:flex;gap:34px;margin-top:62px;flex-wrap:wrap;
+      color:#c9c6bc;font-size:12px;
+    }
+    .hero-meta strong{display:block;color:#fff;font-size:14px;margin-bottom:3px}
+
+    section{padding:110px 0}
+    .container{width:min(1180px,calc(100% - 40px));margin:auto}
+    .section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:42px}
+    .section-kicker{
+      color:var(--gold-dark);text-transform:uppercase;letter-spacing:.17em;
+      font-size:11px;font-weight:800;margin-bottom:10px;
+    }
+    h2{
+      font-family:"Manrope",sans-serif;
+      font-size:clamp(38px,5vw,66px);
+      letter-spacing:-.055em;
+      line-height:.98;
+      max-width:700px;
+    }
+    .section-intro{max-width:390px;color:var(--muted);font-size:15px}
+
+    .showcase{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:18px;
+    }
+    .image-card{
+      position:relative;overflow:hidden;border-radius:var(--radius);
+      background:#ddd;min-height:620px;
+    }
+    .image-card img{height:100%;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+    .image-card:hover img{transform:scale(1.035)}
+    .image-overlay{
+      position:absolute;inset:auto 0 0 0;padding:34px;
+      color:#fff;
+      background:linear-gradient(transparent,rgba(0,0,0,.78));
+    }
+    .image-overlay h3{font:700 31px/1 "Manrope";letter-spacing:-.04em}
+    .image-overlay p{color:#ddd;margin-top:8px;font-size:14px}
+    .side-stack{display:grid;grid-template-rows:1fr 1fr;gap:18px}
+    .small-card{min-height:301px}
+
+    .inventory{background:var(--ink);color:#fff}
+    .inventory .section-kicker{color:#c7a568}
+    .inventory .section-intro{color:#aaa79e}
+    .inventory-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .car-card{
+      background:#181815;border:1px solid rgba(255,255,255,.09);
+      border-radius:22px;overflow:hidden;transition:transform .3s,border-color .3s;
+    }
+    .car-card:hover{transform:translateY(-7px);border-color:rgba(205,171,106,.45)}
+    .car-img{height:270px;overflow:hidden}
+    .car-img img{height:100%;transition:.6s}
+    .car-card:hover .car-img img{transform:scale(1.04)}
+    .car-info{padding:22px}
+    .car-tag{color:#c6a568;text-transform:uppercase;letter-spacing:.13em;font-size:10px;font-weight:800}
+    .car-info h3{font:700 24px/1.1 "Manrope";letter-spacing:-.035em;margin:9px 0 8px}
+    .car-info p{color:#a8a69e;font-size:13px}
+    .card-link{
+      display:inline-flex;margin-top:20px;color:#fff;font-size:12px;font-weight:800;
+      border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:4px;
+    }
+
+    .trust{
+      display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+    }
+    .trust-copy p{color:var(--muted);max-width:570px;margin-top:22px;font-size:16px}
+    .numbers{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:35px}
+    .number{
+      padding:24px;border:1px solid var(--line);border-radius:18px;background:#fff;
+    }
+    .number strong{font:800 35px/1 "Manrope";letter-spacing:-.05em}
+    .number span{display:block;color:var(--muted);font-size:12px;margin-top:8px}
+    .trust-image{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    .trust-image img{aspect-ratio:4/5}
+
+    .services{background:#eeece4}
+    .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .service{
+      padding:27px 22px;background:rgba(255,255,255,.55);
+      border:1px solid rgba(17,17,15,.08);border-radius:18px;
+      min-height:190px;transition:.25s;
+    }
+    .service:hover{background:#fff;transform:translateY(-4px)}
+    .service-no{font-size:11px;color:var(--gold-dark);font-weight:800}
+    .service h3{font:700 21px/1.1 "Manrope";letter-spacing:-.03em;margin:28px 0 9px}
+    .service p{font-size:13px;color:var(--muted)}
+
+    .moments-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .moment{border-radius:var(--radius);overflow:hidden;position:relative;min-height:520px}
+    .moment img{height:100%;transition:.7s}
+    .moment:hover img{transform:scale(1.03)}
+    .moment-caption{
+      position:absolute;left:24px;right:24px;bottom:24px;
+      background:rgba(14,14,12,.74);backdrop-filter:blur(12px);
+      color:#fff;padding:18px 20px;border-radius:17px;border:1px solid rgba(255,255,255,.13)
+    }
+    .moment-caption h3{font:700 20px/1.1 "Manrope";letter-spacing:-.03em}
+    .moment-caption p{font-size:12px;color:#c9c7bf;margin-top:5px}
+
+    .contact{
+      background:#11110f;color:#fff;
+      position:relative;overflow:hidden;
+    }
+    .contact:before{
+      content:"";position:absolute;width:560px;height:560px;border-radius:50%;
+      right:-260px;top:-220px;border:1px solid rgba(198,164,96,.16);
+      box-shadow:0 0 0 80px rgba(198,164,96,.03),0 0 0 160px rgba(198,164,96,.025);
+    }
+    .contact-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;position:relative}
+    .contact h2{max-width:760px}
+    .contact-copy{color:#aaa79e;max-width:540px;margin-top:22px}
+    .contact-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .details{display:grid;gap:18px}
+    .detail{border-top:1px solid rgba(255,255,255,.12);padding-top:17px}
+    .detail small{color:#88867f;text-transform:uppercase;letter-spacing:.14em;font-size:9px;font-weight:800}
+    .detail p{margin-top:5px;font-size:14px;color:#e4e1d9}
+    footer{
+      background:#11110f;color:#77756d;border-top:1px solid rgba(255,255,255,.08);
+      padding:25px 0;font-size:11px;
+    }
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+    .reveal.show{opacity:1;transform:none}
+
+    @media(max-width:900px){
+      .nav-links{display:none}
+      .showcase,.trust,.contact-grid{grid-template-columns:1fr}
+      .side-stack{grid-template-columns:1fr 1fr;grid-template-rows:none}
+      .image-card{min-height:480px}
+      .inventory-grid{grid-template-columns:1fr 1fr}
+      .service-grid{grid-template-columns:1fr 1fr}
+      .trust{gap:35px}
+    }
+    @media(max-width:620px){
+      .nav-wrap{top:10px;width:calc(100% - 20px)}
+      nav{height:64px;padding:0 13px 0 17px}
+      .brand{font-size:15px}
+      .brand-mark{width:32px;height:32px}
+      .nav-cta{padding:10px 13px;font-size:11px}
+      .hero-content{padding-bottom:62px}
+      .hero-copy{font-size:15px}
+      .hero-meta{gap:18px;margin-top:38px}
+      section{padding:78px 0}
+      .section-head{display:block}
+      .section-intro{margin-top:16px}
+      .showcase{gap:12px}
+      .side-stack{gap:12px}
+      .image-card{min-height:390px}
+      .small-card{min-height:260px}
+      .inventory-grid,.service-grid,.moments-grid{grid-template-columns:1fr}
+      .car-img{height:260px}
+      .moment{min-height:430px}
+      .numbers{grid-template-columns:1fr 1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav-wrap">
+    <nav>
+      <a class="brand" href="#top">
+        <span class="brand-mark">HM</span>
+        <span>HEMKUNT MOTORS</span>
+      </a>
+      <div class="nav-links">
+        <a href="#inventory">Cars</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="tel:+918585969605">Call Us</a>
+    </nav>
+  </div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="eyebrow">Hemkunt Motors & Properties</div>
+        <h1>Drive something<br>worth remembering.</h1>
+        <p class="hero-copy">
+          A refined destination for quality pre-owned cars in Rohini, New Delhi —
+          selected with care, presented with confidence and backed by a personal buying experience.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#inventory">Explore Cars</a>
+          <a class="btn btn-ghost" href="tel:+918585969605">Speak With Us</a>
+        </div>
+        <div class="hero-meta">
+          <div><strong>Rohini, New Delhi</strong>Flat No. 82, Pocket 7, Sector 2</div>
+          <div><strong>Open Today</strong>10:30 AM – 7:30 PM</div>
+          <div><strong>Direct Enquiries</strong>085859 69605</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="inventory">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">The collection</div>
+            <h2>Cars that make a strong first impression.</h2>
+          </div>
+          <p class="section-intro">
+            Browse a curated selection of vehicles. Contact Hemkunt Motors for current availability,
+            pricing, inspection and purchase details.
+          </p>
+        </div>
+
+        <div class="inventory-grid">
+          <article class="car-card reveal">
+            <div class="car-img"><img src="assets/hero-jeep.png" alt="Premium SUV at Hemkunt Motors"></div>
+            <div class="car-info">
+              <div class="car-tag">Featured SUV</div>
+              <h3>Premium SUV</h3>
+              <p>Bold road presence, practical comfort and a commanding driving position.</p>
+              <a class="card-link" href="tel:+918585969605">Enquire for details →</a>
+            </div>
+          </article>
+
+          <article class="car-card reveal">
+            <div class="car-img"><img src="assets/showroom-sedan.png" alt="Silver sedan outside Hemkunt Motors"></div>
+            <div class="car-info">
+              <div class="car-tag">Executive Sedan</div>
+              <h3>Silver Sedan</h3>
+              <p>A clean, understated choice for everyday city driving and family use.</p>
+              <a class="card-link" href="tel:+918585969605">Enquire for details →</a>
+            </div>
+          </article>
+
+          <article class="car-card reveal">
+            <div class="car-img"><img src="assets/premium-jeep.png" alt="Premium off-road SUV"></div>
+            <div class="car-info">
+              <div class="car-tag">Adventure SUV</div>
+              <h3>Off-Road Classic</h3>
+              <p>Built for drivers who want character, capability and a distinctive look.</p>
+              <a class="card-link" href="tel:+918585969605">Enquire for details →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="trust">
+          <div class="trust-copy reveal">
+            <div class="section-kicker">The Hemkunt standard</div>
+            <h2>A more confident way to buy a pre-owned car.</h2>
+            <p>
+              Hemkunt Motors is built around a simple idea: the car-buying experience should feel
+              straightforward, transparent and personal. From choosing the right vehicle to handing
+              over the keys, every interaction is designed to feel considered.
+            </p>
+            <div class="numbers">
+              <div class="number"><strong>01</strong><span>Personal buying assistance</span></div>
+              <div class="number"><strong>02</strong><span>Curated vehicle selection</span></div>
+              <div class="number"><strong>03</strong><span>Inspection-focused approach</span></div>
+              <div class="number"><strong>04</strong><span>Local support in Rohini</span></div>
+            </div>
+          </div>
+          <div class="trust-image reveal">
+            <img src="assets/Hemkunt Motors Streetfront with Silver Sedan(1).png" alt="Hemkunt Motors showroom">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Beyond the sale</div>
+            <h2>More than just a car showroom.</h2>
+          </div>
+          <p class="section-intro">
+            Explore the services Hemkunt Motors offers around your vehicle journey.
+          </p>
+        </div>
+        <div class="service-grid">
+          <div class="service reveal"><span class="service-no">01 / CARS</span><h3>Pre-owned Cars</h3><p>Explore available cars and get help finding the right fit for your budget and lifestyle.</p></div>
+          <div class="service reveal"><span class="service-no">02 / SALE</span><h3>Car Selling</h3><p>Speak directly with the team about presenting and selling your vehicle.</p></div>
+          <div class="service reveal"><span class="service-no">03 / SUPPORT</span><h3>Buying Assistance</h3><p>Get practical guidance through selection, inspection and the final handover.</p></div>
+          <div class="service reveal"><span class="service-no">04 / PROPERTY</span><h3>Properties</h3><p>Hemkunt also operates in property-related services alongside its motors business.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Delivered with trust</div>
+            <h2>Every handover has a story.</h2>
+          </div>
+          <p class="section-intro">Real moments from the Hemkunt Motors experience.</p>
+        </div>
+        <div class="moments-grid">
+          <div class="moment reveal">
+            <img src="assets/delivery-suzuki.png" alt="Vehicle handover at Hemkunt Motors">
+            <div class="moment-caption"><h3>A new set of keys.</h3><p>Helping customers move into their next chapter.</p></div>
+          </div>
+          <div class="moment reveal">
+            <img src="assets/delivery-honda.png" alt="Family vehicle delivery at Hemkunt Motors">
+            <div class="moment-caption"><h3>Made for the people who matter.</h3><p>A memorable delivery, captured at the showroom.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="reveal">
+            <div class="section-kicker">Visit Hemkunt Motors</div>
+            <h2>Let’s find the right car for you.</h2>
+            <p class="contact-copy">
+              Tell us what you are looking for, your preferred budget and when you would like to visit.
+              The Hemkunt Motors team can guide you through the available options.
+            </p>
+            <div class="contact-actions">
+              <a class="btn btn-primary" href="tel:+918585969605">Call 085859 69605</a>
+              <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Flat%20No.%2082%2C%20Pocket%207%2C%20Sector%202%2C%20Rohini%2C%20New%20Delhi%2C%20Delhi%20110085" target="_blank" rel="noopener">Get Directions</a>
+            </div>
+          </div>
+
+          <div class="details reveal">
+            <div class="detail">
+              <small>Showroom</small>
+              <p>Flat No. 82, Pocket 7, Sector 2, Rohini, New Delhi, Delhi 110085</p>
+            </div>
+            <div class="detail">
+              <small>Phone</small>
+              <p>085859 69605</p>
+            </div>
+            <div class="detail">
+              <small>Saturday</small>
+              <p>10:30 AM – 7:30 PM</p>
+            </div>
+            <div class="detail">
+              <small>Sunday</small>
+              <p>10:30 AM – 7:30 PM</p>
+            </div>
+            <div class="detail">
+              <small>Monday</small>
+              <p>11:00 AM – 2:00 PM</p>
+            </div>
+            <div class="detail">
+              <small>Tuesday – Friday</small>
+              <p>10:30 AM – 7:30 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 Hemkunt Motors. All rights reserved.</span>
+      <span>Motors & Properties · Rohini, New Delhi</span>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
